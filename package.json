@@ -1,0 +1,33 @@
+{
+  "name": "animated-expr",
+  "version": "0.1.0",
+  "description":
+    "A tiny language for arithmetic over React Native's Animated values.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/motiz88/animated-expr.git"
+  },
+  "keywords": ["react-native", "animated"],
+  "author": "Moti Zilberman <motiz88@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/motiz88/animated-expr/issues"
+  },
+  "homepage": "https://github.com/motiz88/animated-expr#readme",
+  "peerDependencies": {
+    "react-native": ">=0.17.0"
+  },
+  "devDependencies": {
+    "babel-preset-react-native": "^4.0.0",
+    "jest": "^22.1.4",
+    "react": "^16.2.0",
+    "react-native": "^0.53.0"
+  },
+  "dependencies": {
+    "jest-in-case": "^1.0.2"
+  }
+}

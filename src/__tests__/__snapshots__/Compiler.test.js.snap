@@ -1,0 +1,713 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Compiler binary operators 1`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    "operator": "+",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    Object {
+      "type": "Operator",
+      "value": "+",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+  ],
+}
+`;
+
+exports[`Compiler binary operators 2`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    "operator": "-",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "5.",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    Object {
+      "type": "Operator",
+      "value": "-",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "5.",
+    },
+  ],
+}
+`;
+
+exports[`Compiler binary operators 3`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    "operator": "*",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "1.2e10",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    Object {
+      "type": "Operator",
+      "value": "*",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "1.2e10",
+    },
+  ],
+}
+`;
+
+exports[`Compiler binary operators 4`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    "operator": "/",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "22e-1",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    Object {
+      "type": "Operator",
+      "value": "/",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "22e-1",
+    },
+  ],
+}
+`;
+
+exports[`Compiler binary operators 5`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    "operator": "%",
+    "right": Object {
+      "exprType": "number",
+      "index": 1,
+      "type": "Placeholder",
+      "value": 2,
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    Object {
+      "type": "Operator",
+      "value": "%",
+    },
+    Object {
+      "index": 1,
+      "type": "Placeholder",
+      "value": 2,
+    },
+  ],
+}
+`;
+
+exports[`Compiler binary operators 6`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    "operator": "+",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    Object {
+      "type": "Operator",
+      "value": "+",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+  ],
+}
+`;
+
+exports[`Compiler binary operators 7`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    "operator": "-",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "5.",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    Object {
+      "type": "Operator",
+      "value": "-",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "5.",
+    },
+  ],
+}
+`;
+
+exports[`Compiler binary operators 8`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    "operator": "*",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "1.2e10",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    Object {
+      "type": "Operator",
+      "value": "*",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "1.2e10",
+    },
+  ],
+}
+`;
+
+exports[`Compiler binary operators 9`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    "operator": "/",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "22e-1",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    Object {
+      "type": "Operator",
+      "value": "/",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "22e-1",
+    },
+  ],
+}
+`;
+
+exports[`Compiler binary operators 10`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    "operator": "%",
+    "right": Object {
+      "exprType": "number",
+      "index": 1,
+      "type": "Placeholder",
+      "value": 2,
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "index": 0,
+      "type": "Placeholder",
+      "value": 3.141592653589793,
+    },
+    Object {
+      "type": "Operator",
+      "value": "%",
+    },
+    Object {
+      "index": 1,
+      "type": "Placeholder",
+      "value": 2,
+    },
+  ],
+}
+`;
+
+exports[`Compiler numeric literals 1`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "type": "NumericLiteral",
+    "value": "1",
+  },
+  "tokens": Array [
+    Object {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+  ],
+}
+`;
+
+exports[`Compiler numeric literals 2`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "type": "NumericLiteral",
+    "value": "5.",
+  },
+  "tokens": Array [
+    Object {
+      "type": "NumericLiteral",
+      "value": "5.",
+    },
+  ],
+}
+`;
+
+exports[`Compiler numeric literals 3`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "type": "NumericLiteral",
+    "value": "1.2e10",
+  },
+  "tokens": Array [
+    Object {
+      "type": "NumericLiteral",
+      "value": "1.2e10",
+    },
+  ],
+}
+`;
+
+exports[`Compiler numeric literals 4`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "type": "NumericLiteral",
+    "value": "22e-1",
+  },
+  "tokens": Array [
+    Object {
+      "type": "NumericLiteral",
+      "value": "22e-1",
+    },
+  ],
+}
+`;
+
+exports[`Compiler operator precedence 1`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    "operator": "+",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "left": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "2",
+      },
+      "operator": "*",
+      "right": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "3",
+      },
+      "type": "BinaryExpression",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    Object {
+      "type": "Operator",
+      "value": "+",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "2",
+    },
+    Object {
+      "type": "Operator",
+      "value": "*",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "3",
+    },
+  ],
+}
+`;
+
+exports[`Compiler operator precedence 2`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "left": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "1",
+      },
+      "operator": "+",
+      "right": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "2",
+      },
+      "type": "BinaryExpression",
+    },
+    "operator": "*",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "3",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "type": "LeftParen",
+      "value": "(",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    Object {
+      "type": "Operator",
+      "value": "+",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "2",
+    },
+    Object {
+      "type": "RightParen",
+      "value": ")",
+    },
+    Object {
+      "type": "Operator",
+      "value": "*",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "3",
+    },
+  ],
+}
+`;
+
+exports[`Compiler operator precedence 3`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    "operator": "-",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "left": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "2",
+      },
+      "operator": "/",
+      "right": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "3",
+      },
+      "type": "BinaryExpression",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    Object {
+      "type": "Operator",
+      "value": "-",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "2",
+    },
+    Object {
+      "type": "Operator",
+      "value": "/",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "3",
+    },
+  ],
+}
+`;
+
+exports[`Compiler operator precedence 4`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "left": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "1",
+      },
+      "operator": "-",
+      "right": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "2",
+      },
+      "type": "BinaryExpression",
+    },
+    "operator": "/",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "3",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "type": "LeftParen",
+      "value": "(",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    Object {
+      "type": "Operator",
+      "value": "-",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "2",
+    },
+    Object {
+      "type": "RightParen",
+      "value": ")",
+    },
+    Object {
+      "type": "Operator",
+      "value": "/",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "3",
+    },
+  ],
+}
+`;
+
+exports[`Compiler operator precedence 5`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "left": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "1",
+      },
+      "operator": "-",
+      "right": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "2",
+      },
+      "type": "BinaryExpression",
+    },
+    "operator": "-",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "3",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "type": "LeftParen",
+      "value": "(",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    Object {
+      "type": "Operator",
+      "value": "-",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "2",
+    },
+    Object {
+      "type": "Operator",
+      "value": "-",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "3",
+    },
+    Object {
+      "type": "RightParen",
+      "value": ")",
+    },
+  ],
+}
+`;
