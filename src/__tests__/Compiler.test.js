@@ -27,6 +27,17 @@ describe("Compiler", () => {
     expect(parse` ${Math.PI} % ${2} `).toMatchSnapshot();
   });
 
+  test("reserved binary operators", () => {
+    expect(() => parse` ${Math.PI} ** 1 `).toThrowErrorMatchingSnapshot();
+  });
+
+  test("reserved unary operators", () => {
+    expect(() => parse` ++ ${Math.PI} `).toThrowErrorMatchingSnapshot();
+    expect(() => parse` -- ${Math.PI} `).toThrowErrorMatchingSnapshot();
+    expect(() => parse` ${Math.PI} ++ `).toThrowErrorMatchingSnapshot();
+    expect(() => parse` ${Math.PI} -- `).toThrowErrorMatchingSnapshot();
+  });
+
   test("operator precedence", () => {
     expect(parse` 1 + 2 * 3 `).toMatchSnapshot();
     expect(parse` (1 + 2) * 3 `).toMatchSnapshot();
@@ -41,5 +52,15 @@ describe("Compiler", () => {
     expect(parse` ${Math.PI} * 1.2e10 `).toMatchSnapshot();
     expect(parse` ${Math.PI} / 22e-1 `).toMatchSnapshot();
     expect(parse` ${Math.PI} % ${2} `).toMatchSnapshot();
+  });
+
+  test("block comments", () => {
+    expect(parse` /*1*/ 2 / 3 * 4 /* 5 */ `).toMatchSnapshot();
+    expect(parse` /* /* 1*/0 `).toMatchSnapshot();
+  });
+
+  test("line comments", () => {
+    expect(parse` 1 / 2 // 3`).toMatchSnapshot();
+    expect(parse` 1 / 2 // 3\n + 4`).toMatchSnapshot();
   });
 });

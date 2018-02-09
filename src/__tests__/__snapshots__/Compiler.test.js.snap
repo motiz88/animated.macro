@@ -364,6 +364,180 @@ Object {
 }
 `;
 
+exports[`Compiler block comments 1`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "left": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "2",
+      },
+      "operator": "/",
+      "right": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "3",
+      },
+      "type": "BinaryExpression",
+    },
+    "operator": "*",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "4",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "type": "BlockComment",
+      "value": "/*1*/",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "2",
+    },
+    Object {
+      "type": "Operator",
+      "value": "/",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "3",
+    },
+    Object {
+      "type": "Operator",
+      "value": "*",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "4",
+    },
+    Object {
+      "type": "BlockComment",
+      "value": "/* 5 */",
+    },
+  ],
+}
+`;
+
+exports[`Compiler block comments 2`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "type": "NumericLiteral",
+    "value": "0",
+  },
+  "tokens": Array [
+    Object {
+      "type": "BlockComment",
+      "value": "/* /* 1*/",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "0",
+    },
+  ],
+}
+`;
+
+exports[`Compiler line comments 1`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    "operator": "/",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "2",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    Object {
+      "type": "Operator",
+      "value": "/",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "2",
+    },
+    Object {
+      "type": "LineComment",
+      "value": "// 3",
+    },
+  ],
+}
+`;
+
+exports[`Compiler line comments 2`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "left": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "1",
+      },
+      "operator": "/",
+      "right": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "2",
+      },
+      "type": "BinaryExpression",
+    },
+    "operator": "+",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "4",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    Object {
+      "type": "Operator",
+      "value": "/",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "2",
+    },
+    Object {
+      "type": "LineComment",
+      "value": "// 3",
+    },
+    Object {
+      "type": "Operator",
+      "value": "+",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "4",
+    },
+  ],
+}
+`;
+
 exports[`Compiler numeric literals 1`] = `
 Object {
   "ast": Object {
@@ -711,3 +885,13 @@ Object {
   ],
 }
 `;
+
+exports[`Compiler reserved binary operators 1`] = `"The operator '**' is not supported in this context"`;
+
+exports[`Compiler reserved unary operators 1`] = `"The operator '++' is not supported in this context"`;
+
+exports[`Compiler reserved unary operators 2`] = `"The operator '--' is not supported in this context"`;
+
+exports[`Compiler reserved unary operators 3`] = `"Expected EOF but Operator found"`;
+
+exports[`Compiler reserved unary operators 4`] = `"Expected EOF but Operator found"`;

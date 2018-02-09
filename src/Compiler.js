@@ -5,6 +5,9 @@ const OPERATOR_PRECEDENCE = {
   "/": 2,
   "%": 2
 };
+const customError = require("custom-error");
+
+const AnimatedSyntaxError = customError("AnimatedSyntaxError");
 
 module.exports = class Compiler {
   *tokenizeTemplate(strings, ...values) {
@@ -44,6 +47,11 @@ module.exports = class Compiler {
         yield { type: "BlockComment", value: lastMatch };
         continue;
       }
+      if (consume(/^(\+\+|--|\*\*)/)) {
+        // Reserve operators
+        yield { type: "Operator", value: lastMatch };
+        continue;
+      }
       if (consume(/^[\+\-\*\/\%]/)) {
         yield { type: "Operator", value: lastMatch };
         continue;
@@ -69,7 +77,7 @@ module.exports = class Compiler {
         continue;
       }
       if (index < s.length) {
-        throw new Error(`Unexpected: ${s[index]}`);
+        throw new AnimatedSyntaxError(`Unexpected: ${s[index]}`);
       }
     }
   }
@@ -91,8 +99,15 @@ module.exports = class Compiler {
     }
     function expectType(type) {
       if (!firstToken || firstToken.type !== type) {
-        throw new Error(
+        throw new AnimatedSyntaxError(
           `Expected ${type} but ${firstToken ? firstToken.type : "EOF"} found`
+        );
+      }
+    }
+    function expectEnd() {
+      if (firstToken) {
+        throw new AnimatedSyntaxError(
+          `Expected EOF but ${firstToken.type} found`
         );
       }
     }
@@ -105,30 +120,48 @@ module.exports = class Compiler {
       pullToken();
       if (firstToken && firstToken.type === "Operator") {
         const operator = firstToken;
-        const right = parseExpression();
-        if (
-          right.type === "BinaryExpression" &&
-          OPERATOR_PRECEDENCE[right.operator] <=
-            OPERATOR_PRECEDENCE[operator.value]
-        ) {
-          return {
-            type: "BinaryExpression",
-            left: {
+        switch (operator.value) {
+          case "**":
+            throw new AnimatedSyntaxError(
+              `The operator '${
+                operator.value
+              }' is not supported in this context`
+            );
+          case "+":
+          /* falls through */
+          case "-":
+          /* falls through */
+          case "*":
+          /* falls through */
+          case "/":
+          /* falls through */
+          case "%": {
+            const right = parseExpression();
+            if (
+              right.type === "BinaryExpression" &&
+              OPERATOR_PRECEDENCE[right.operator] <=
+                OPERATOR_PRECEDENCE[operator.value]
+            ) {
+              return {
+                type: "BinaryExpression",
+                left: {
+                  type: "BinaryExpression",
+                  left: leftOrOnly,
+                  right: right.left,
+                  operator: operator.value
+                },
+                right: right.right,
+                operator: right.operator
+              };
+            }
+            return {
               type: "BinaryExpression",
+              operator: operator.value,
               left: leftOrOnly,
-              right: right.left,
-              operator: operator.value
-            },
-            right: right.right,
-            operator: right.operator
-          };
+              right
+            };
+          }
         }
-        return {
-          type: "BinaryExpression",
-          operator: operator.value,
-          left: leftOrOnly,
-          right
-        };
       }
       return leftOrOnly;
     }
@@ -149,21 +182,37 @@ module.exports = class Compiler {
       }
     }
     function parseUnaryExpression() {
-      if (
-        firstToken &&
-        firstToken.type === "Operator" &&
-        (firstToken.value === "-" || firstToken.value === "+")
-      ) {
+      if (firstToken && firstToken.type === "Operator") {
         const operator = firstToken;
-        pullToken();
-        const argument =
-          parseParenthesizedExpression() ||
-          parseUnaryExpression() ||
-          parseLiteralOrPlaceholder();
-        return { type: "UnaryExpression", operator: operator.value, argument };
+        switch (operator.value) {
+          case "++":
+          /* falls through */
+          case "--":
+            throw new AnimatedSyntaxError(
+              `The operator '${
+                operator.value
+              }' is not supported in this context`
+            );
+          case "-":
+          /* falls through */
+          case "+": {
+            pullToken();
+            const argument =
+              parseParenthesizedExpression() ||
+              parseUnaryExpression() ||
+              parseLiteralOrPlaceholder();
+            return {
+              type: "UnaryExpression",
+              operator: operator.value,
+              argument
+            };
+          }
+        }
       }
     }
-    return this.addExpressionTypes(parseExpression());
+    const expr = parseExpression();
+    expectEnd();
+    return this.addExpressionTypes(expr);
   }
 
   addExpressionTypes(node, parentType = "Animated.Value") {
