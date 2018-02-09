@@ -1,6 +1,6 @@
 {
-  "name": "animated-expr",
-  "version": "0.1.0",
+  "name": "animated.macro",
+  "version": "0.0.1",
   "description":
     "A tiny language for arithmetic over React Native's Animated values.",
   "main": "index.js",
@@ -9,26 +9,33 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/motiz88/animated-expr.git"
+    "url": "git+https://github.com/motiz88/animated.macro.git"
   },
-  "keywords": ["react-native", "animated"],
+  "keywords": [
+    "react-native",
+    "animated",
+    "babel-plugin-macros",
+    "babel-plugin"
+  ],
   "author": "Moti Zilberman <motiz88@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/motiz88/animated-expr/issues"
+    "url": "https://github.com/motiz88/animated.macro/issues"
   },
-  "homepage": "https://github.com/motiz88/animated-expr#readme",
+  "homepage": "https://github.com/motiz88/animated.macro#readme",
   "peerDependencies": {
     "react-native": ">=0.17.0"
   },
   "devDependencies": {
+    "babel-plugin-tester": "^5.0.0",
     "babel-preset-react-native": "^4.0.0",
-    "jest": "^22.1.4",
+    "jest": "^22.2.2",
     "react": "^16.2.0",
     "react-native": "^0.53.0"
   },
   "dependencies": {
-    "custom-error": "^0.2.1",
+    "babel-plugin-macros": "^2.1.0",
+    "error.js": "^1.2.1",
     "jest-in-case": "^1.0.2"
   }
 }

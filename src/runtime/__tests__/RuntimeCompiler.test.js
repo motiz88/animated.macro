@@ -1,16 +1,8 @@
-const RuntimeCompiler = require("../RuntimeCompiler");
+const compile = require("../../../");
 const { Animated } = require("react-native");
 const { Node: AnimatedNode } = Animated;
 
 describe("RuntimeCompiler", () => {
-  let compile;
-
-  beforeAll(() => {
-    const compiler = new RuntimeCompiler();
-
-    compile = compiler.evaluateTemplate.bind(compiler);
-  });
-
   test("cast literal to AnimatedNode", () => {
     expect(compile`1`).toBeInstanceOf(AnimatedNode);
   });

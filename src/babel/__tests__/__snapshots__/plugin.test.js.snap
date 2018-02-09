@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`animated.macro 1. animated.macro: 1. animated.macro 1`] = `
+"
+import { Animated } from \\"react-native\\";
+import animated from \\"animated.macro\\";
+
+animated\`\${Math.PI} + 2\`
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _Math$PI;
+
+import { Animated } from \\"react-native\\";
+
+
+Animated.add((_Math$PI = Math.PI, typeof _Math$PI === \\"number\\" ? new Animated.Value(_Math$PI) : _Math$PI), new Animated.Value(2));
+"
+`;
+
+exports[`animated.macro 2. animated.macro: 2. animated.macro 1`] = `
+"
+import { Animated } from \\"react-native\\";
+import animated from \\"animated.macro\\";
+
+const x = 1; animated\`\${x} + 2 + 3\`.interpolate()
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { Animated } from \\"react-native\\";
+
+
+const x = 1;Animated.add(Animated.add(new Animated.Value(x), new Animated.Value(2)), new Animated.Value(3)).interpolate();
+"
+`;
+
+exports[`animated.macro 3. animated.macro: 3. animated.macro 1`] = `
+"
+import { Animated } from \\"react-native\\";
+import animated from \\"animated.macro\\";
+
+animated\`1 + 1\`
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { Animated } from \\"react-native\\";
+
+
+Animated.add(new Animated.Value(1), new Animated.Value(1));
+"
+`;
+
+exports[`animated.macro 4. animated.macro: 4. animated.macro 1`] = `
+"
+import { Animated } from \\"react-native\\";
+import animated from \\"animated.macro\\";
+
+animated\`3 % 2\`
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { Animated } from \\"react-native\\";
+
+
+Animated.modulo(new Animated.Value(3), 2);
+"
+`;
+
+exports[`animated.macro 5. animated.macro: 5. animated.macro 1`] = `
+"
+import { Animated } from \\"react-native\\";
+import animated from \\"animated.macro\\";
+
+animated\`\${foo} * 3\`
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _foo;
+
+import { Animated } from \\"react-native\\";
+
+
+Animated.multiply((_foo = foo, typeof _foo === \\"number\\" ? new Animated.Value(_foo) : _foo), new Animated.Value(3));
+"
+`;
+
+exports[`animated.macro 6. animated.macro: 6. animated.macro 1`] = `
+"
+import { Animated } from \\"react-native\\";
+import animated from \\"animated.macro\\";
+
+animated\`(\${foo} + \${foo})\`
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _foo, _foo2;
+
+import { Animated } from \\"react-native\\";
+
+
+Animated.add((_foo = foo, typeof _foo === \\"number\\" ? new Animated.Value(_foo) : _foo), (_foo2 = foo, typeof _foo2 === \\"number\\" ? new Animated.Value(_foo2) : _foo2));
+"
+`;

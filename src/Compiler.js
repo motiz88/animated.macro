@@ -5,11 +5,13 @@ const OPERATOR_PRECEDENCE = {
   "/": 2,
   "%": 2
 };
-const customError = require("custom-error");
+const CustomError = require("error.js");
 
-const AnimatedSyntaxError = customError("AnimatedSyntaxError");
+const AnimatedSyntaxError = CustomError.create("AnimatedSyntaxError");
 
 module.exports = class Compiler {
+  static AnimatedSyntaxError = AnimatedSyntaxError;
+
   *tokenizeTemplate(strings, ...values) {
     for (let i = 0; i < values.length; ++i) {
       yield* this.tokenizeString(strings[i]);

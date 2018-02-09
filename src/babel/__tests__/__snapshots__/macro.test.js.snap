@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`macros 1. macros: 1. macros 1`] = `
+"
+import { Animated } from \\"react-native\\";
+import animated from \\"../macro\\";
+
+animated\`\${Math.PI} + 2\`
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _Math$PI;
+
+import { Animated } from \\"react-native\\";
+
+
+Animated.add((_Math$PI = Math.PI, typeof _Math$PI === \\"number\\" ? new Animated.Value(_Math$PI) : _Math$PI), new Animated.Value(2));
+"
+`;
+
+exports[`macros 2. macros: 2. macros 1`] = `
+"
+import { Animated } from \\"react-native\\";
+import animated from \\"../macro\\";
+
+const x = 1; animated\`\${x} + 2 + 3\`.interpolate()
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { Animated } from \\"react-native\\";
+
+
+const x = 1;Animated.add(Animated.add(new Animated.Value(x), new Animated.Value(2)), new Animated.Value(3)).interpolate();
+"
+`;
+
+exports[`macros 3. macros: 3. macros 1`] = `
+"
+import { Animated } from \\"react-native\\";
+import animated from \\"../macro\\";
+
+animated\`1 + 1\`
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { Animated } from \\"react-native\\";
+
+
+Animated.add(new Animated.Value(1), new Animated.Value(1));
+"
+`;
+
+exports[`macros 4. macros: 4. macros 1`] = `
+"
+import { Animated } from \\"react-native\\";
+import animated from \\"../macro\\";
+
+animated\`3 % 2\`
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { Animated } from \\"react-native\\";
+
+
+Animated.modulo(new Animated.Value(3), 2);
+"
+`;
+
+exports[`macros 5. macros: 5. macros 1`] = `
+"
+import { Animated } from \\"react-native\\";
+import animated from \\"../macro\\";
+
+animated\`\${foo} * 3\`
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _foo;
+
+import { Animated } from \\"react-native\\";
+
+
+Animated.multiply((_foo = foo, typeof _foo === \\"number\\" ? new Animated.Value(_foo) : _foo), new Animated.Value(3));
+"
+`;
+
+exports[`macros 6. macros: 6. macros 1`] = `
+"
+import { Animated } from \\"react-native\\";
+import animated from \\"../macro\\";
+
+animated\`(\${foo} + \${foo})\`
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+var _foo, _foo2;
+
+import { Animated } from \\"react-native\\";
+
+
+Animated.add((_foo = foo, typeof _foo === \\"number\\" ? new Animated.Value(_foo) : _foo), (_foo2 = foo, typeof _foo2 === \\"number\\" ? new Animated.Value(_foo2) : _foo2));
+"
+`;

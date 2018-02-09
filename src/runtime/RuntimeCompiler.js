@@ -1,4 +1,4 @@
-const Compiler = require("./Compiler");
+const Compiler = require("../Compiler");
 const { Animated } = require("react-native");
 
 const ANIMATED_UNARY_OPS = {

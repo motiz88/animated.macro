@@ -1,0 +1,8 @@
+[
+  "animated`${Math.PI} + 2`",
+  "const x = 1; animated`${x} + 2 + 3`.interpolate()",
+  "animated`1 + 1`",
+  "animated`3 % 2`",
+  "animated`${foo} * 3`",
+  "animated`(${foo} + ${foo})`"
+]
