@@ -2,3 +2,4 @@
 **/__snapshots__
 **/*.test.js
 .vscode
+jest.config.js
