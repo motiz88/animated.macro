@@ -1,17 +1,18 @@
 {
   "name": "animated.macro",
-  "version": "0.0.4",
+  "version": "0.0.0-development",
   "description": "A tiny language for arithmetic over React Native's Animated values.",
   "main": "index.js",
   "react-native": {
     "./index.js": "src/runtime/index.js"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/motiz88/animated.macro.git"
+    "url": "https://github.com/motiz88/animated.macro.git"
   },
   "keywords": [
     "react-native",
@@ -34,7 +35,8 @@
     "jest": "^22.2.2",
     "jest-in-case": "^1.0.2",
     "react": "^16.2.0",
-    "react-native": "^0.53.0"
+    "react-native": "^0.53.0",
+    "semantic-release": "^12.4.1"
   },
   "dependencies": {
     "babel-plugin-macros": "^2.1.0",
