@@ -113,22 +113,19 @@ module.exports = class Compiler {
         );
       }
     }
-    function parseExpression() {
-      pullToken();
-      const leftOrOnly =
+    function parsePrimary() {
+      const expr =
         parseParenthesizedExpression() ||
         parseUnaryExpression() ||
         parseLiteralOrPlaceholder();
       pullToken();
-      if (firstToken && firstToken.type === "Operator") {
-        const operator = firstToken;
+      return expr;
+    }
+    function parseExpressionOp(left, minPrec = 0) {
+      let operator, right;
+      while (firstToken && firstToken.type === "Operator") {
+        operator = firstToken;
         switch (operator.value) {
-          case "**":
-            throw new AnimatedSyntaxError(
-              `The operator '${
-                operator.value
-              }' is not supported in this context`
-            );
           case "+":
           /* falls through */
           case "-":
@@ -137,35 +134,44 @@ module.exports = class Compiler {
           /* falls through */
           case "/":
           /* falls through */
-          case "%": {
-            const right = parseExpression();
-            if (
-              right.type === "BinaryExpression" &&
-              OPERATOR_PRECEDENCE[right.operator] <=
-                OPERATOR_PRECEDENCE[operator.value]
-            ) {
-              return {
-                type: "BinaryExpression",
-                left: {
-                  type: "BinaryExpression",
-                  left: leftOrOnly,
-                  right: right.left,
-                  operator: operator.value
-                },
-                right: right.right,
-                operator: right.operator
-              };
-            }
-            return {
-              type: "BinaryExpression",
-              operator: operator.value,
-              left: leftOrOnly,
-              right
-            };
-          }
+          case "%":
+            break;
+          default:
+            throw new AnimatedSyntaxError(
+              `The operator '${
+                operator.value
+              }' is not supported in this context`
+            );
         }
+        if (!(OPERATOR_PRECEDENCE[firstToken.value] >= minPrec)) {
+          break;
+        }
+
+        pullToken();
+        right = parsePrimary();
+        while (
+          firstToken &&
+          firstToken.type === "Operator" &&
+          OPERATOR_PRECEDENCE[firstToken.value] >
+            OPERATOR_PRECEDENCE[operator.value]
+        ) {
+          right = parseExpressionOp(
+            right,
+            OPERATOR_PRECEDENCE[firstToken.value]
+          );
+        }
+        left = {
+          type: "BinaryExpression",
+          operator: operator.value,
+          left,
+          right
+        };
       }
-      return leftOrOnly;
+      return left;
+    }
+    function parseExpression() {
+      pullToken();
+      return parseExpressionOp(parsePrimary());
     }
     function parseLiteralOrPlaceholder() {
       if (

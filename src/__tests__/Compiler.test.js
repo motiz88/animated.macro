@@ -44,6 +44,7 @@ describe("Compiler", () => {
     expect(parse` 1 - 2 / 3 `).toMatchSnapshot();
     expect(parse` (1 - 2) / 3 `).toMatchSnapshot();
     expect(parse` (1 - 2 - 3)`).toMatchSnapshot();
+    expect(parse` 1 / (0 + 1) `).toMatchSnapshot();
   });
 
   test("binary operators", () => {

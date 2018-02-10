@@ -58,4 +58,11 @@ describe("RuntimeCompiler", () => {
     expect(compiled).toBeInstanceOf(AnimatedNode);
     expect(compiled).toMatchSnapshot();
   });
+
+  test("inverting a parenthesized addition", () => {
+    const value = new Animated.Value(0);
+    const compiled = compile`1 / (${value} + 1)`;
+    expect(compiled).toBeInstanceOf(AnimatedNode);
+    expect(compiled).toMatchSnapshot();
+  });
 });

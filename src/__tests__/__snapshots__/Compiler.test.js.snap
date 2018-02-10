@@ -886,12 +886,72 @@ Object {
 }
 `;
 
+exports[`Compiler operator precedence 6`] = `
+Object {
+  "ast": Object {
+    "exprType": "Animated.Value",
+    "left": Object {
+      "exprType": "Animated.Value",
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    "operator": "/",
+    "right": Object {
+      "exprType": "Animated.Value",
+      "left": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "0",
+      },
+      "operator": "+",
+      "right": Object {
+        "exprType": "Animated.Value",
+        "type": "NumericLiteral",
+        "value": "1",
+      },
+      "type": "BinaryExpression",
+    },
+    "type": "BinaryExpression",
+  },
+  "tokens": Array [
+    Object {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    Object {
+      "type": "Operator",
+      "value": "/",
+    },
+    Object {
+      "type": "LeftParen",
+      "value": "(",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "0",
+    },
+    Object {
+      "type": "Operator",
+      "value": "+",
+    },
+    Object {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    Object {
+      "type": "RightParen",
+      "value": ")",
+    },
+  ],
+}
+`;
+
 exports[`Compiler reserved binary operators 1`] = `"The operator '**' is not supported in this context"`;
 
 exports[`Compiler reserved unary operators 1`] = `"The operator '++' is not supported in this context"`;
 
 exports[`Compiler reserved unary operators 2`] = `"The operator '--' is not supported in this context"`;
 
-exports[`Compiler reserved unary operators 3`] = `"Expected EOF but Operator found"`;
+exports[`Compiler reserved unary operators 3`] = `"The operator '++' is not supported in this context"`;
 
-exports[`Compiler reserved unary operators 4`] = `"Expected EOF but Operator found"`;
+exports[`Compiler reserved unary operators 4`] = `"The operator '--' is not supported in this context"`;
