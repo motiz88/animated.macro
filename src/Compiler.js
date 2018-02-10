@@ -5,9 +5,14 @@ const OPERATOR_PRECEDENCE = {
   "/": 2,
   "%": 2
 };
-const CustomError = require("error.js");
 
-const AnimatedSyntaxError = CustomError.create("AnimatedSyntaxError");
+const { BaseError } = require("make-error");
+
+class AnimatedSyntaxError extends BaseError {
+  constructor(message) {
+    super(message);
+  }
+}
 
 module.exports = class Compiler {
   static AnimatedSyntaxError = AnimatedSyntaxError;
