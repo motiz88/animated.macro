@@ -19,7 +19,7 @@ A tiny language for arithmetic over React Native's [Animated](https://facebook.g
 [babel-plugin-macros-badge]: https://img.shields.io/badge/babel%20macro-%F0%9F%8E%A3-f5da55.svg
 [babel-plugin-macros]: https://github.com/kentcdodds/babel-plugin-macros
 [expo-snack-badge]: https://img.shields.io/badge/try%20it%20on-Expo%20Snack%20%F0%9F%93%B1-488CCD.svg
-[expo-snack]: https://snack.expo.io/HJQfFaj8f
+[expo-snack]: https://snack.expo.io/rJrBx828M
 [semantic-release-badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
 [semantic-release]: https://github.com/semantic-release/semantic-release
 
