@@ -1,8 +1,7 @@
 {
   "name": "animated.macro",
-  "version": "0.0.1",
-  "description":
-    "A tiny language for arithmetic over React Native's Animated values.",
+  "version": "0.0.2",
+  "description": "A tiny language for arithmetic over React Native's Animated values.",
   "main": "index.js",
   "scripts": {
     "test": "jest"
