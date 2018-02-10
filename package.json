@@ -1,6 +1,6 @@
 {
   "name": "animated.macro",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A tiny language for arithmetic over React Native's Animated values.",
   "main": "index.js",
   "react-native": {
