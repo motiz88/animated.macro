@@ -1,5 +1,7 @@
 # animated.macro
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/motiz88/animated.macro.svg)](https://greenkeeper.io/)
+
 A tiny language for arithmetic over React Native's [Animated](https://facebook.github.io/react-native/docs/animations.html) values.
 
 [![Codeship Status for motiz88/animated.macro][codeship-badge]][codeship]
