@@ -226,27 +226,25 @@ module.exports = class Compiler {
   addExpressionTypes(node, parentType = "Animated.Value") {
     switch (node.type) {
       case "BinaryExpression":
-        return {
-          ...node,
+        return Object.assign({}, node, {
           exprType: parentType,
           left: this.addExpressionTypes(node.left, parentType),
           right: this.addExpressionTypes(
             node.right,
             node.operator === "%" ? "number" : "Animated.Value"
           )
-        };
+        });
         break;
       case "UnaryExpression":
-        return {
-          ...node,
+        return Object.assign({}, node, {
           exprType: parentType,
           argument: this.addExpressionTypes(node.argument, parentType)
-        };
+        });
 
       case "NumericLiteral":
       /* falls through */
       case "Placeholder":
-        return { ...node, exprType: parentType };
+        return Object.assign({}, node, { exprType: parentType });
     }
   }
 };
