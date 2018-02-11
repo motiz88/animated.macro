@@ -957,42 +957,42 @@ exports[`Compiler reserved unary operators 3`] = `"The operator '++' is not supp
 exports[`Compiler reserved unary operators 4`] = `"The operator '--' is not supported in this context"`;
 
 exports[`Compiler unsupported syntax 1`] = `
-"invalid syntax at line 1 col 2:
+"invalid syntax near:
 
    Math.PI 
    ^"
 `;
 
 exports[`Compiler unsupported syntax 2`] = `
-"invalid syntax at line 1 col 2:
+"invalid syntax near:
 
    abs(
    ^"
 `;
 
 exports[`Compiler unsupported syntax 3`] = `
-"invalid syntax at line 1 col 2:
+"invalid syntax near:
 
    \\"Hi\\" 
    ^"
 `;
 
 exports[`Compiler unsupported syntax 4`] = `
-"invalid syntax at line 1 col 2:
+"invalid syntax near:
 
    if (
    ^"
 `;
 
 exports[`Compiler unsupported syntax 5`] = `
-"invalid syntax at line 1 col 2:
+"invalid syntax near:
 
    true 
    ^"
 `;
 
 exports[`Compiler unsupported syntax 6`] = `
-"invalid syntax at line 1 col 2:
+"invalid syntax near:
 
   .interpolate() 
    ^"

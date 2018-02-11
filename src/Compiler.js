@@ -1,18 +1,4 @@
-const moo = require("moo");
-
-const lexerPrototype = moo.compile({
-  WS: { match: /\s+/, lineBreaks: true },
-  LineComment: /\/\/.*?$/,
-  BlockComment: { match: /\/\*[^]*?\*\//, lineBreaks: true },
-  Operator: ["++", "--", "**", "+", "-", "*", "/", "%"],
-  LeftParen: "(",
-  RightParen: ")",
-  NumericLiteral: [
-    /(?:0|[1-9][0-9]*)\.[0-9]*(?:e[+\-]?[0-9]+)?/, // 1.0, 1.0e1
-    /\.[0-9]*(?:e[+\-]?[0-9]+)?/, // .0, .0e1
-    /(?:0|[1-9][0-9]*)(?:e[+\-]?[0-9]+)?/ // 0, 1, 0e1, 1e1
-  ]
-});
+const lexerPrototype = require("./lexers/string");
 
 const OPERATOR_PRECEDENCE = {
   "+": 1,
