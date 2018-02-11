@@ -3,3 +3,4 @@
 **/*.test.js
 .vscode
 jest.config.js
+.babelrc.dist.js

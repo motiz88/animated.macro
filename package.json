@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "jest",
-    "semantic-release": "semantic-release"
+    "build": "babel -d dist src --source-maps --ignore \"**/__tests__/**\"",
+    "semantic-release": "npm run build && semantic-release"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,11 @@
     "react-native": ">=0.17.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-tester": "^5.0.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react-native": "^4.0.0",
     "jest": "^22.2.2",
     "jest-in-case": "^1.0.2",
