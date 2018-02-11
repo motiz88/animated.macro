@@ -64,4 +64,14 @@ describe("Compiler", () => {
     expect(parse` 1 / 2 // 3`).toMatchSnapshot();
     expect(parse` 1 / 2 // 3\n + 4`).toMatchSnapshot();
   });
+
+  test("unsupported syntax", () => {
+    const x = 0;
+    expect(() => parse` Math.PI `).toThrowErrorMatchingSnapshot();
+    expect(() => parse` abs(${x}) `).toThrowErrorMatchingSnapshot();
+    expect(() => parse` "Hi" `).toThrowErrorMatchingSnapshot();
+    expect(() => parse` if (${x}) {} `).toThrowErrorMatchingSnapshot();
+    expect(() => parse` true `).toThrowErrorMatchingSnapshot();
+    expect(() => parse` ${x}.interpolate() `).toThrowErrorMatchingSnapshot();
+  });
 });
