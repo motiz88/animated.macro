@@ -1,3 +1,19 @@
+const moo = require("moo");
+
+const lexerPrototype = moo.compile({
+  WS: { match: /\s+/, lineBreaks: true },
+  LineComment: /\/\/.*?$/,
+  BlockComment: { match: /\/\*[^]*?\*\//, lineBreaks: true },
+  Operator: ["++", "--", "**", "+", "-", "*", "/", "%"],
+  LeftParen: "(",
+  RightParen: ")",
+  NumericLiteral: [
+    /(?:0|[1-9][0-9]*)\.[0-9]*(?:e[+\-]?[0-9]+)?/, // 1.0, 1.0e1
+    /\.[0-9]*(?:e[+\-]?[0-9]+)?/, // .0, .0e1
+    /(?:0|[1-9][0-9]*)(?:e[+\-]?[0-9]+)?/ // 0, 1, 0e1, 1e1
+  ]
+});
+
 const OPERATOR_PRECEDENCE = {
   "+": 1,
   "-": 1,
@@ -26,66 +42,12 @@ module.exports = class Compiler {
   }
 
   *tokenizeString(s) {
-    let index = 0,
-      lastMatch;
-    function match(pattern) {
-      const found = s.substr(index).match(pattern);
-      if (found) {
-        lastMatch = found[0];
-      } else {
-        lastMatch = undefined;
-      }
-      return !!found;
-    }
-    function consume(pattern) {
-      if (match(pattern)) {
-        index += lastMatch.length;
-        return true;
-      }
-      return false;
-    }
-    while (index < s.length) {
-      consume(/^\s*/);
-      if (consume(/^\/\/.*/)) {
-        yield { type: "LineComment", value: lastMatch };
+    const lexer = lexerPrototype.clone().reset(s);
+    for (const token of lexer) {
+      if (token.type === "WS") {
         continue;
       }
-      if (consume(/^\/\*[^]*?\*\//)) {
-        yield { type: "BlockComment", value: lastMatch };
-        continue;
-      }
-      if (consume(/^(\+\+|--|\*\*)/)) {
-        // Reserve operators
-        yield { type: "Operator", value: lastMatch };
-        continue;
-      }
-      if (consume(/^[\+\-\*\/\%]/)) {
-        yield { type: "Operator", value: lastMatch };
-        continue;
-      }
-      if (consume(/^\(/)) {
-        yield { type: "LeftParen", value: lastMatch };
-        continue;
-      }
-      if (consume(/^\)/)) {
-        yield { type: "RightParen", value: lastMatch };
-        continue;
-      }
-      if (consume(/^(0|[1-9][0-9]*)\.[0-9]*(e[+\-]?[0-9]+)?/)) {
-        yield { type: "NumericLiteral", value: lastMatch };
-        continue;
-      }
-      if (consume(/^\.[0-9]*(e[+\-]?[0-9]+)?/)) {
-        yield { type: "NumericLiteral", value: lastMatch };
-        continue;
-      }
-      if (consume(/^(0|[1-9][0-9]*)(e[+\-]?[0-9]+)?/)) {
-        yield { type: "NumericLiteral", value: lastMatch };
-        continue;
-      }
-      if (index < s.length) {
-        throw new AnimatedSyntaxError(`Unexpected: ${s[index]}`);
-      }
+      yield { type: token.type, value: token.value };
     }
   }
 
