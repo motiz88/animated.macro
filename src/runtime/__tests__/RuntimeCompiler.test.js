@@ -1,4 +1,4 @@
-const compile = require("../../../");
+const compile = require("../");
 const { Animated } = require("react-native");
 const { Node: AnimatedNode } = Animated;
 
