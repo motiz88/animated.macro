@@ -4,7 +4,7 @@
   "description": "A tiny language for arithmetic over React Native's Animated values.",
   "main": "index.js",
   "react-native": {
-    "./index.js": "src/runtime/index.js"
+    "./index.js": "dist/runtime/index.js"
   },
   "scripts": {
     "test": "jest",
